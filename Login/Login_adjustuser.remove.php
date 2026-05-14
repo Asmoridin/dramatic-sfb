@@ -22,7 +22,7 @@ if( ! $userObj )
   // set up the default values for new accounts and write it
   $userObj = new User( array('username'=>$userName) );
 
-  $userObj->modify('priviledges', $DEFAULT_PRIVILEDGE );
+  $userObj->modify('privileges', $DEFAULT_PRIVILEGE );
   $userObj->modify('theme', $DEFAULT_THEME );
   $userObj->modify('signupDate', date( "Y-m-d H:i:s", $_SERVER['REQUEST_TIME'] ) );
   $signup = "New Account"; // set the signup date to something besides a 0 value
@@ -103,19 +103,19 @@ $password2Tag = "<input type='password' name='pass2' class=''";
 if( $userObj->modify('pass') == "" )
   $password2Tag .= " required";
 $password2Tag .= " autocomplete='off'>";
-$priviledgesTag = "<span class=''>".$userObj->modify('priviledges')."</span>";
+$privilegesTag = "<span class=''>".$userObj->modify('privileges')."</span>";
 if( $canChange )
 {
-  $priviledgesTag = "<select name='privLevel'>";
-  $levels = array_keys($PRIVILEDGE_LEVELS);
+  $privilegesTag = "<select name='privLevel'>";
+  $levels = array_keys($PRIVILEGE_LEVELS);
   foreach( $levels as $privName )
   {
-    $priviledgesTag .= "<option value='$privName'";
-    if( $userObj->modify('priviledges') == $privName )
-      $priviledgesTag .= " selected";
-    $priviledgesTag .= ">$privName</option>";
+    $privilegesTag .= "<option value='$privName'";
+    if( $userObj->modify('privileges') == $privName )
+      $privilegesTag .= " selected";
+    $privilegesTag .= ">$privName</option>";
   }
-  $priviledgesTag .= "</select>";
+  $privilegesTag .= "</select>";
 }
 $signupTag = "<span class=''>$signup</span>";
 $submitTag = "<input type='submit' name='finished' value='Save and Exit' class=''>";
@@ -224,7 +224,7 @@ function assignViaForm ()
   // assign the given privledge level
   if( ! empty( $_REQUEST['privLevel'] ) && $canChange )
   {
-    $userObj->modify('priviledges', $_REQUEST['privLevel'] );
+    $userObj->modify('privileges', $_REQUEST['privLevel'] );
     $theme = $_REQUEST['privLevel'];
   }
 
