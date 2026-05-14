@@ -55,7 +55,7 @@ $auth->plainPassword( $SOFTWARE_SUPERUSER_PASSWORD );
 $password = $auth->encryptedPassword();
 $playerA = new User( array(
           'email'=>'','fullName'=>'','username'=> $SOFTWARE_SUPERUSER_LOGIN, 'isApproved'=> true, 'isVerified'=> true,
-          'signupDate'=> date( "Y-m-d H:i:s" ), 'priviledges'=> 'Admin', 'pass'=>$password, 'theme'=>$DEFAULT_THEME
+          'signupDate'=> date( "Y-m-d H:i:s" ), 'privileges'=> 'Admin', 'pass'=>$password, 'theme'=>$DEFAULT_THEME
         ) );
 $result = $playerA->create();
 
