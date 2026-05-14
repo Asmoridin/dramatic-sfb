@@ -12,7 +12,7 @@ class User extends BaseObject
   protected $isVerified	= false;	// This user has verified their email account
   protected $pass	= "";	// stored encrypted
 // Privs are set as a codeword. "decoded" to privs after login to perform these actions
-  protected $priviledges	= "";	// may create games, join games, close games.
+  protected $privileges	= "";	// may create games, join games, close games.
   protected $sessionID	= "";	// Identifier for the latest session
   protected $sessionTime	= 0;	// time of the latest session
   protected $signupDate	= "";	// NOTE: only extracted from the DB, never stored
@@ -105,7 +105,7 @@ class User extends BaseObject
       'isApproved'	=> $this->isApproved,
       'isVerified'	=> $this->isVerified,
       'pass'	=> $this->pass,
-      'priviledges'	=> $this->priviledges,
+      'privileges'	=> $this->privileges,
       'sessionID'	=> $this->sessionID,
       'sessionTime'	=> $this->sessionTime,
       'theme'	=> $this->theme,
