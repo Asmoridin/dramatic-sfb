@@ -31,7 +31,7 @@ if( $result )
 
 // these are the values given to the newly-created user
 $userSettings = array(
-    'priviledges' => $DEFAULT_PRIVILEDGE,
+    'privileges' => $DEFAULT_PRIVILEGE,
     'signupDate' => date( "F d, Y", $_SERVER['REQUEST_TIME'] ),
     'theme' => $DEFAULT_THEME,
     'username' => $_REQUEST["login"],
