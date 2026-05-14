@@ -5,7 +5,7 @@
 ###
 
 Methods:
-checkPrivs() - Determines if the player has the given priviledge
+checkPrivs() - Determines if the player has the given privilege
 encryptedPassword() - gets or sets the encrypted password
 generateNewSession() - creates a new session ID from the supplied username
 getSessionRequest() - returns the session argument and sessionID as if part of a GET request
@@ -55,20 +55,20 @@ function __destruct ()
 }
 
 ###
-# Determines if the player has the given priviledge
+# Determines if the player has the given privilege
 ###
 # Args are:
 # - (object) The player object to check against
-# - (string) The priviledge to check for
+# - (string) The privilege to check for
 # Returns:
 # - (bool) True if the player can perform the action. False otherwise
 ###
 function checkPrivs( $obj, $priv )
 {
-  global $PRIVILEDGE_LEVELS;
-  if( ! method_exists( $obj, "modify" ) || empty( $obj->modify('priviledges') ) )
+  global $PRIVILEGE_LEVELS;
+  if( ! method_exists( $obj, "modify" ) || empty( $obj->modify('privileges') ) )
     return false;
-  $privList = $PRIVILEDGE_LEVELS[ $obj->modify('priviledges') ];
+  $privList = $PRIVILEGE_LEVELS[ $obj->modify('privileges') ];
   if( is_array($privList) && in_array( $priv, $privList ) )
     return true;
   return false;
