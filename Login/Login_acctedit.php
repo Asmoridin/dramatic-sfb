@@ -19,7 +19,7 @@ $GOTO_ON_UNVERIFIED = "/Login/Login_unverified.php";
 $GOTO_ON_UNAPPROVED = "/Login/templates/Login_unapproved.html";
 $LIST_SIZE = 0.75;	// the amount of the account list to show in the select box (1 = 100% of the list)
 $OTHER_ACCT_GET_STRING = "acct";	// Post string for other-acct-to-edit dropdown select
-$PRIV_LEVEL_GET_STRING = "privLevel";	// Post string for changing the priviledge level
+$PRIV_LEVEL_GET_STRING = "privLevel";	// Post string for changing the privilege level
 $SAVE_NAME_STRING = "finished";	// HTML name for the save-and-exit function
 
 include_once( dirname(__FILE__) . "/Login_common.php" );
@@ -222,9 +222,9 @@ $isVerified = "No";
 if( $userObj->modify('isVerified') )
   $isVerified = "Yes";
 $javascript = "<script type='text/javascript'>function deleteConfirm(){r = window.confirm('Do you want to delete this user? It cannot be undone.');return r}</script>";
-$privsTag = $userObj->modify('priviledges');
+$privsTag = $userObj->modify('privileges');
 if( $canElevate && ! $originalUser )
-  $privsTag = getPrivs( $userObj->modify('priviledges') );
+  $privsTag = getPrivs( $userObj->modify('privileges') );
 $signupTag = $userObj->modify('signupDate');
 $submitTag = "<input type='submit' name='$SAVE_NAME_STRING' value='Save and Exit' class=''>";
 $tag_back = "<a href='$GOTO_ON_BACK'>Back</a>";
@@ -253,7 +253,7 @@ exit();
 ###
 function assignViaForm( $canChangePrivs )
 {
-  global $authObj, $userObj, $EMAIL_UPDATE_STRING, $PRIVILEDGE_LEVELS, $PRIV_LEVEL_GET_STRING, $THEMES;
+  global $authObj, $userObj, $EMAIL_UPDATE_STRING, $PRIVILEGE_LEVELS, $PRIV_LEVEL_GET_STRING, $THEMES;
   global $SAVE_NAME_STRING;
   $email = "";
   $name = "";
@@ -296,9 +296,9 @@ function assignViaForm( $canChangePrivs )
     $isAnUpdate = true;
   }
   // assign the given privledge level
-  if( ! empty( $_REQUEST[$PRIV_LEVEL_GET_STRING] ) && $canChangePrivs && isset($PRIVILEDGE_LEVELS[$_REQUEST[$PRIV_LEVEL_GET_STRING]]) )
+  if( ! empty( $_REQUEST[$PRIV_LEVEL_GET_STRING] ) && $canChangePrivs && isset($PRIVILEGE_LEVELS[$_REQUEST[$PRIV_LEVEL_GET_STRING]]) )
   {
-    $userObj->modify('priviledges', $_REQUEST[$PRIV_LEVEL_GET_STRING] );
+    $userObj->modify('privileges', $_REQUEST[$PRIV_LEVEL_GET_STRING] );
     $privs = $_REQUEST[$PRIV_LEVEL_GET_STRING];
     $isAnUpdate = true;
   }
@@ -389,8 +389,8 @@ function generateVerifyKey ()
 ###
 function getPrivs( $selectedPrivs = "" )
 {
-  global $PRIVILEDGE_LEVELS, $PRIV_LEVEL_GET_STRING;
-  $privLevelNames = array_keys($PRIVILEDGE_LEVELS);
+  global $PRIVILEGE_LEVELS, $PRIV_LEVEL_GET_STRING;
+  $privLevelNames = array_keys($PRIVILEGE_LEVELS);
   $output = "<select name='$PRIV_LEVEL_GET_STRING'>\n";
   foreach( $privLevelNames as $levelName )
   {
