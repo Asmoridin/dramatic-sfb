@@ -4,7 +4,7 @@ Configuration file
 */
 
 $BUSINESS_GIVEN_NAME = "SFB Dramatic Universe Campaign";	// The name of the business hosting the website. Used in emails
-$DEFAULT_PRIVILEDGE = "Iron";	// the priviledge level (below) that new accts are given
+$DEFAULT_PRIVILEGE = "Iron";	// the privilege level (below) that new accts are given
 $DEFAULT_THEME = "simple";
 $LOGIN_EXPIRE_TIME = 3600;	// time that a player can stay logged in, in seconds. An hour is 3600 seconds
 $MUST_VERIFY_EMAIL = true;	// set to true so new accts must respond to a letter sent to their reported email acct
@@ -32,7 +32,7 @@ $MYSQL_pw_admin = "genfedkliromkzigortho";
 
 
 ###
-# Priviledge Levels
+# Privilege Levels
 ###
 # Available privs are:
 #
@@ -46,9 +46,9 @@ $MYSQL_pw_admin = "genfedkliromkzigortho";
 # closeAll - Close any games
 # create - Create games
 # deleteAcct - Delete any user acct
-# elevate - May adjust the priviledge levels of another acct (but not yourself)
+# elevate - May adjust the privilege levels of another acct (but not yourself)
 ###
-$PRIVILEDGE_LEVELS = array(
+$PRIVILEGE_LEVELS = array(
 "Admin" => array( 'advance', 'advanceAll', 'anyRace', 'basicRace', 'canApprove', 'changeAcct', 'close', 'closeAll', 'create', 'deleteAcct', 'elevate' ), // can do anything
 "Gold" => array( 'advance','anyRace', 'basicRace', 'close', 'create' ), // Can create and adjust games
 "Silver" => array( 'anyRace', 'basicRace' ), // Can play as a complete empire
